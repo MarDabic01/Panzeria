@@ -3,23 +3,46 @@ using Unity.Netcode;
 
 public class PlayerFire : NetworkBehaviour
 {
-    [SerializeField] GameObject bullet;
-    [SerializeField] Transform spawnPoint;
+    [SerializeField] public BulletsList bulletsList;
+    [SerializeField] public GameObject ability;
+    [SerializeField] public Transform spawnPoint;
 
-    // Start is called before the first frame update
+    public PlayerFireAbility playerFireAbility { get; set; }
+
     void Start()
     {
-        
+        playerFireAbility = new PlayerFireAbility(bulletsList, this);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!IsOwner) return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        FireBasicBullet();
+        FireAbility();
+    }
+
+    private void FireBasicBullet()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            PanzeriaMultiplayer.Instance.SpawnBullet(bullet, spawnPoint.position, spawnPoint.rotation);
+            PanzeriaMultiplayer.Instance.SpawnBullet(bulletsList.GetBulletByName(BulletsEnum.BULLET), spawnPoint.position, spawnPoint.rotation);
         }
+    }
+
+    private void FireAbility()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && doesUserHaveAbility())
+        {
+            switch (ability.name)
+            {
+                case BulletsEnum.BOMB: playerFireAbility.UseBombAbility(bulletsList.GetBulletByName(BulletsEnum.BOMB), spawnPoint); break;
+            }
+        }
+    }
+
+    private bool doesUserHaveAbility()
+    {
+        return ability != null ? true : false;
     }
 }

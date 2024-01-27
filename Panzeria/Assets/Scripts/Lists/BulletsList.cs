@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,4 +5,9 @@ using UnityEngine;
 public class BulletsList : ScriptableObject
 {
     public List<GameObject> bullets;
+
+    public GameObject GetBulletByName(string bulletName)
+    {
+        return bullets.Find(bullet => bullet.name == bulletName);
+    }
 }

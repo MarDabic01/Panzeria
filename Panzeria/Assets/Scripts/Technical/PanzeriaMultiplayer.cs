@@ -19,12 +19,10 @@ public class PanzeriaMultiplayer : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void SpawnBulletServerRpc(int bulletIndex, Vector3 position, Quaternion rotation)
     {
-        GameObject bullet = GetBulletFromIndex(bulletIndex);
-        GameObject spawnedBullet = Instantiate(bullet, position, rotation);
+        GameObject spawnedBullet = Instantiate(GetBulletFromIndex(bulletIndex), position, rotation);
+
         NetworkObject spawnedBulletNetwork = spawnedBullet.GetComponent<NetworkObject>();
         spawnedBulletNetwork.Spawn(true);
-        spawnedBullet.GetComponent<Rigidbody>().isKinematic = false;
-        spawnedBullet.GetComponent<Rigidbody>().AddForce(spawnedBullet.transform.forward * 300f);
     }
 
     private int GetBulletIndex(GameObject bullet)

@@ -9,15 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8665549034219000845}
-  - component: {fileID: 770145198807679752}
-  - component: {fileID: 7220642312191423359}
+  - component: {fileID: 4072984705954413360}
+  - component: {fileID: 2286260915380824813}
   - component: {fileID: 1801215218248397772}
   - component: {fileID: 7902979353673810850}
-  - component: {fileID: 5007793153522474164}
-  - component: {fileID: 8013937400007176680}
-  - component: {fileID: 5408171345228108619}
+  - component: {fileID: 4101975752698240410}
+  - component: {fileID: 3603430750841725464}
+  - component: {fileID: 7837434308892690098}
   m_Layer: 3
-  m_Name: Bullet
+  m_Name: BombFragment
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &770145198807679752
+--- !u!54 &4072984705954413360
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,10 +53,10 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 0
---- !u!135 &7220642312191423359
-SphereCollider:
+--- !u!65 &2286260915380824813
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -66,7 +66,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22
+  m_Size: {x: 0.4, y: 0.09, z: 0.41}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1801215218248397772
 MonoBehaviour:
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1629920529
+  GlobalObjectIdHash: 476372120
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 0
   SlerpPosition: 0
---- !u!114 &5007793153522474164
+--- !u!114 &4101975752698240410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8013937400007176680
+--- !u!114 &3603430750841725464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,12 +139,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5367790557683094682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7e61221a8d7ca408f0e470e74bb521, type: 3}
+  m_Script: {fileID: 11500000, guid: bb2e798cf29cb3a429bde1e75a8e004c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 300
-  bulletLifetime: 10
---- !u!114 &5408171345228108619
+  bulletSpeed: 320
+  bulletLifetime: 5
+--- !u!114 &7837434308892690098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,9 +153,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5367790557683094682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3240abe362ecb341b96726aed9c1b76, type: 3}
+  m_Script: {fileID: 11500000, guid: 50f341751b4e28644a832a3f6a0346ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 4072984705954413360}
 --- !u!1 &8887646870213613833
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +169,7 @@ GameObject:
   - component: {fileID: 7371931090206144533}
   - component: {fileID: 7700965896233008934}
   m_Layer: 3
-  m_Name: Sphere
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 8887646870213613833}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.4, y: 0.1, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8665549034219000845}
@@ -196,7 +197,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8887646870213613833}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7700965896233008934
 MeshRenderer:
   m_ObjectHideFlags: 0

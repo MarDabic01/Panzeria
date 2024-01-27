@@ -15,17 +15,14 @@ public class BulletMovement : NetworkBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.AddForce(this.transform.forward * bulletSpeed);
         Destroy(gameObject, bulletLifetime);
     }
 
     private void LateUpdate()
     {
         lastVelocity = rb.velocity;
-    }
-
-    private void MoveBullet()
-    {
-        rb.AddForce(transform.forward * bulletSpeed);
     }
 
     private void BounceBullet(Collision collision)

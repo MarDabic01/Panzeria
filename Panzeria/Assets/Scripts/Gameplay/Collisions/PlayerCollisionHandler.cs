@@ -6,9 +6,8 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "CubeTEST")
+        if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Collision ended");
             rb.velocity = Vector3.zero;
         }
     }

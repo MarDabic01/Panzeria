@@ -213,8 +213,7 @@ GameObject:
   - component: {fileID: 554007022304296448}
   - component: {fileID: 8962830417669662092}
   - component: {fileID: 4872764446600965320}
-  - component: {fileID: 2099213119068139119}
-  - component: {fileID: 5063658280223557289}
+  - component: {fileID: 2524140792037689363}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -250,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3594568053
+  GlobalObjectIdHash: 544894586
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -329,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2099213119068139119
+--- !u!114 &2524140792037689363
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -338,7 +337,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2558541735342643573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f7aefebb3ef908458891a7bdfdcae75, type: 3}
+  m_Script: {fileID: 11500000, guid: abcd0a43ed183784ba52871faacc5268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
@@ -350,19 +349,8 @@ MonoBehaviour:
   - {fileID: 2156459554238512154}
   - {fileID: 8778469574139315780}
   wheelRotationSpeed: 350
---- !u!114 &5063658280223557289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2558541735342643573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38fc4edb7e528b1499daadade708fb92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 5367790557683094682, guid: 022e0b17caa0d664ab66e221636c33e2, type: 3}
+  bulletsList: {fileID: 11400000, guid: 2757822e03ce7624a905889f58290cbc, type: 2}
+  ability: {fileID: 5367790557683094682, guid: 46b95ea5f1c2a3a44a724c8bec5ed333, type: 3}
   spawnPoint: {fileID: 2471893509085377378}
 --- !u!1 &6184983539198172793
 GameObject:
