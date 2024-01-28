@@ -32,13 +32,13 @@ public class PlayerFire : NetworkBehaviour
 
     private void FireAbility()
     {
-        if (Input.GetKeyDown(KeyCode.P) && doesUserHaveAbility())
-        {
-            switch (ability.name)
-            {
-                case BulletsEnum.BOMB: playerFireAbility.UseBombAbility(bulletsList.GetBulletByName(BulletsEnum.BOMB), spawnPoint); break;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.P) && doesUserHaveAbility())
+        //{
+        //    switch (ability.name)
+        //    {
+        //        case BulletsEnum.BOMB: playerFireAbility.UseBombAbility(bulletsList.GetBulletByName(BulletsEnum.BOMB), spawnPoint); break;
+        //    }
+        //}
     }
 
     private bool doesUserHaveAbility()

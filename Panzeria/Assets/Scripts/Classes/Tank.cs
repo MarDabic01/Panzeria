@@ -5,6 +5,7 @@ public sealed class Tank : NetworkBehaviour
 {
     //Initialize variables inside Unity
     //Movement variables
+    [SerializeField] private GameObject player;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private GameObject[] leftWheels;
@@ -38,7 +39,7 @@ public sealed class Tank : NetworkBehaviour
 
         tankService.RotateWheels(moveInput, rotationInput, wheelRotationSpeed, leftWheels, rightWheels);
         tankService.FireBasicBullet(bulletsList, spawnPoint);
-        tankService.FireAbility(ability, playerFireAbility, bulletsList, spawnPoint);
+        tankService.FireAbility(player, ability, playerFireAbility, bulletsList, spawnPoint);
     }
 
     private void FixedUpdate()

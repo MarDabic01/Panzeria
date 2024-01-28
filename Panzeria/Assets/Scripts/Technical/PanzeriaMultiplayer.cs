@@ -1,13 +1,16 @@
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
 public class PanzeriaMultiplayer : NetworkBehaviour
 {
     [SerializeField] private BulletsList BulletsList;
+    [SerializeField] private List<BombListElement> BombsList;
     public static PanzeriaMultiplayer Instance { get; private set; }
 
     private void Awake()
     {
+        BombsList = new List<BombListElement>();
         Instance = this;
     }
 
@@ -23,6 +26,36 @@ public class PanzeriaMultiplayer : NetworkBehaviour
 
         NetworkObject spawnedBulletNetwork = spawnedBullet.GetComponent<NetworkObject>();
         spawnedBulletNetwork.Spawn(true);
+    }
+
+    public void SpawnBomb(GameObject bullet, Vector3 position, Quaternion rotation, ulong networkObjectId)
+    {
+        SpawnBombServerRpc(GetBulletIndex(bullet), position, rotation, networkObjectId);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SpawnBombServerRpc(int bulletIndex, Vector3 position, Quaternion rotation, ulong networkObjectId)
+    {
+        GameObject spawnedBomb = Instantiate(GetBulletFromIndex(bulletIndex), position, rotation);
+        BombsList.Add(new BombListElement {
+            Bomb = spawnedBomb,
+            NetworkObjectId = networkObjectId
+        });
+        NetworkObject spawnedBulletNetwork = spawnedBomb.GetComponent<NetworkObject>();
+        spawnedBulletNetwork.Spawn(true);
+    }
+
+    public void DespawnBomb(ulong networkObjectId)
+    {
+        DespawnBombServerRpc(networkObjectId);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void DespawnBombServerRpc(ulong networkObjectId)
+    {
+        NetworkObject spawnedBulletNetwork = BombsList.Find(elem => elem.NetworkObjectId == networkObjectId).Bomb.GetComponent<NetworkObject>();
+        spawnedBulletNetwork.Despawn(true);
+        BombsList.RemoveAll(elem => elem.NetworkObjectId == networkObjectId);
     }
 
     private int GetBulletIndex(GameObject bullet)

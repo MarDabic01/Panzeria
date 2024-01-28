@@ -16,12 +16,12 @@ public class PlayerFireAbility : NetworkBehaviour
         PlayerFire = playerFire;
     }
 
-    public void UseBombAbility(GameObject ability, Transform spawnPoint)
+    public void UseBombAbility(GameObject player, GameObject ability, Transform spawnPoint)
     {
         if (!isBombFired)
         {
             bombLocal = Instantiate(BulletsList.GetBulletByName(BulletsEnum.BOMBLOCAL), spawnPoint.position, spawnPoint.rotation);
-            PanzeriaMultiplayer.Instance.SpawnBullet(ability, spawnPoint.position, spawnPoint.rotation);
+            PanzeriaMultiplayer.Instance.SpawnBomb(ability, spawnPoint.position, spawnPoint.rotation, player.GetComponent<NetworkObject>().NetworkObjectId);
             isBombFired = true;
         }
         else
@@ -30,6 +30,8 @@ public class PlayerFireAbility : NetworkBehaviour
             {
                 PanzeriaMultiplayer.Instance.SpawnBullet(BulletsList.GetBulletByName(BulletsEnum.BOMBFRAGMENT), bombLocal.transform.position, Quaternion.Euler(0f, Random.Range(0, 360), 0f));
             }
+            PanzeriaMultiplayer.Instance.DespawnBomb(player.GetComponent<NetworkObject>().NetworkObjectId);
+            Destroy(bombLocal);
             isBombFired = false;
         }
     }
