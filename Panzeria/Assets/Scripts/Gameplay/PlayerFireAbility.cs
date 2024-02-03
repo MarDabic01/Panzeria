@@ -26,15 +26,16 @@ public class PlayerFireAbility : NetworkBehaviour
         }
         else
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 7; i++)
             {
                 PanzeriaMultiplayer.Instance.SpawnBullet(BulletsList.GetBulletByName(BulletsEnum.BOMBFRAGMENT), bombLocal.transform.position, Quaternion.Euler(0f, Random.Range(0, 360), 0f));
             }
             PanzeriaMultiplayer.Instance.DespawnBomb(player.GetComponent<NetworkObject>().NetworkObjectId);
             Destroy(bombLocal);
             isBombFired = false;
+            ResetAbility(player);
         }
     }
 
-    private void ResetAbility() => PlayerFire.ability = null;
+    private void ResetAbility(GameObject player) => player.GetComponent<Tank>().ability = null;
 }

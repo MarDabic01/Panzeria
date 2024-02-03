@@ -5,6 +5,7 @@ using UnityEngine;
 public class PanzeriaMultiplayer : NetworkBehaviour
 {
     [SerializeField] private BulletsList BulletsList;
+    [SerializeField] private AbilitiesList AbilitiesList;
     [SerializeField] private List<BombListElement> BombsList;
     public static PanzeriaMultiplayer Instance { get; private set; }
 
@@ -58,6 +59,20 @@ public class PanzeriaMultiplayer : NetworkBehaviour
         BombsList.RemoveAll(elem => elem.NetworkObjectId == networkObjectId);
     }
 
+    public void SpawnAbility(GameObject ability, Vector3 position, Quaternion rotation)
+    {
+        SpawnAbilityServerRpc(GetAbilityIndex(ability), position, rotation);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SpawnAbilityServerRpc(int abilityIndex, Vector3 position, Quaternion rotation)
+    {
+        GameObject spawnedAbility = Instantiate(GetAbilityFromIndex(abilityIndex), position, rotation);
+
+        NetworkObject spawnedAbilityNetwork = spawnedAbility.GetComponent<NetworkObject>();
+        spawnedAbilityNetwork.Spawn(true);
+    }
+
     private int GetBulletIndex(GameObject bullet)
     {
         return BulletsList.bullets.IndexOf(bullet);
@@ -66,5 +81,15 @@ public class PanzeriaMultiplayer : NetworkBehaviour
     private GameObject GetBulletFromIndex(int bulletIndex)
     {
         return BulletsList.bullets[bulletIndex]; ;
+    }
+
+    private int GetAbilityIndex(GameObject ability)
+    {
+        return AbilitiesList.abilities.IndexOf(ability);
+    }
+
+    private GameObject GetAbilityFromIndex(int abilityIndex)
+    {
+        return AbilitiesList.abilities[abilityIndex]; ;
     }
 }

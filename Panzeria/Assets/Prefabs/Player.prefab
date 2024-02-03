@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 8962830417669662092}
   - component: {fileID: 4872764446600965320}
   - component: {fileID: 2524140792037689363}
+  - component: {fileID: 5572378123740685132}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -351,8 +352,21 @@ MonoBehaviour:
   - {fileID: 8778469574139315780}
   wheelRotationSpeed: 350
   bulletsList: {fileID: 11400000, guid: 2757822e03ce7624a905889f58290cbc, type: 2}
-  ability: {fileID: 5367790557683094682, guid: 46b95ea5f1c2a3a44a724c8bec5ed333, type: 3}
+  ability: {fileID: 0}
   spawnPoint: {fileID: 2471893509085377378}
+--- !u!114 &5572378123740685132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2558541735342643573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d36bab6b70a004981d0ac700d86771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletsList: {fileID: 11400000, guid: 2757822e03ce7624a905889f58290cbc, type: 2}
 --- !u!1 &6184983539198172793
 GameObject:
   m_ObjectHideFlags: 0

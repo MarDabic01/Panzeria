@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
-    [SerializeField] Rigidbody rb;
+    [SerializeField] private BulletsList bulletsList;
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        switch (collision.gameObject.tag)
         {
-            rb.velocity = Vector3.zero;
+            case "BombAbility": gameObject.GetComponent<Tank>().ability = bulletsList.GetBulletByName(BulletsEnum.BOMB); break;
         }
     }
 }
