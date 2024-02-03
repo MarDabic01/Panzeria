@@ -54,6 +54,7 @@ public class PanzeriaMultiplayer : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void DespawnBombServerRpc(ulong networkObjectId)
     {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animation>().Play();
         NetworkObject spawnedBulletNetwork = BombsList.Find(elem => elem.NetworkObjectId == networkObjectId).Bomb.GetComponent<NetworkObject>();
         spawnedBulletNetwork.Despawn(true);
         BombsList.RemoveAll(elem => elem.NetworkObjectId == networkObjectId);

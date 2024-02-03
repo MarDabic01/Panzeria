@@ -30,6 +30,7 @@ public class PlayerFireAbility : NetworkBehaviour
             {
                 PanzeriaMultiplayer.Instance.SpawnBullet(BulletsList.GetBulletByName(BulletsEnum.BOMBFRAGMENT), bombLocal.transform.position, Quaternion.Euler(0f, Random.Range(0, 360), 0f));
             }
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animation>().Play();
             PanzeriaMultiplayer.Instance.DespawnBomb(player.GetComponent<NetworkObject>().NetworkObjectId);
             Destroy(bombLocal);
             isBombFired = false;
