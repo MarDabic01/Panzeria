@@ -16,6 +16,7 @@ public sealed class Tank : NetworkBehaviour
     [SerializeField] public BulletsList bulletsList;
     [SerializeField] public GameObject ability;
     [SerializeField] public Transform spawnPoint;
+    [SerializeField] public Transform mineSpawnPoint;
 
     //Private variables
     private TankService tankService = new TankService();
@@ -39,7 +40,7 @@ public sealed class Tank : NetworkBehaviour
 
         tankService.RotateWheels(moveInput, rotationInput, wheelRotationSpeed, leftWheels, rightWheels);
         tankService.FireBasicBullet(bulletsList, spawnPoint);
-        tankService.FireAbility(player, ability, playerFireAbility, bulletsList, spawnPoint);
+        tankService.FireAbility(player, ability, playerFireAbility, bulletsList, spawnPoint, mineSpawnPoint);
     }
 
     private void FixedUpdate()

@@ -1,6 +1,5 @@
 using UnityEngine;
 using Unity.Netcode;
-using System.Collections;
 
 public class TankService : NetworkBehaviour, ITank
 {
@@ -46,7 +45,7 @@ public class TankService : NetworkBehaviour, ITank
         }
     }
 
-    public void FireAbility(GameObject player, GameObject ability, PlayerFireAbility playerFireAbility, BulletsList bulletsList, Transform spawnPoint)
+    public void FireAbility(GameObject player, GameObject ability, PlayerFireAbility playerFireAbility, BulletsList bulletsList, Transform spawnPoint, Transform mineSpawnPoint)
     {
         if (Input.GetKey(KeyCode.P) && doesUserHaveAbility(ability))
         {
@@ -54,6 +53,7 @@ public class TankService : NetworkBehaviour, ITank
             {
                 case BulletsEnum.BOMB: playerFireAbility.UseBombAbility(player, bulletsList.GetBulletByName(BulletsEnum.BOMB), spawnPoint); break;
                 case BulletsEnum.MACHINEGUNBULLET: playerFireAbility.UseMachineGunAbility(bulletsList.GetBulletByName(BulletsEnum.MACHINEGUNBULLET), spawnPoint); break;
+                case BulletsEnum.MINE: playerFireAbility.UseMineAbility(player, bulletsList.GetBulletByName(BulletsEnum.MINE), mineSpawnPoint); break;
             }
         }
     }

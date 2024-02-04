@@ -14,6 +14,7 @@ public class PlayerCollisionHandler : MonoBehaviour
                     gameObject.GetComponent<Tank>().ability = bulletsList.GetBulletByName(BulletsEnum.MACHINEGUNBULLET);
                     StartCoroutine(ResetMachineGun());
             } break;
+            case "MineAbility": gameObject.GetComponent<Tank>().ability = bulletsList.GetBulletByName(BulletsEnum.MINE); break;
         }
     }
 
