@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BombAbilityCollision : MonoBehaviour
+public class AbilityCollision : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {

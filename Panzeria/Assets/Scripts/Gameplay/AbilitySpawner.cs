@@ -16,8 +16,9 @@ public class AbilitySpawner : MonoBehaviour
 
     IEnumerator SpawnAbilityCoroutine()
     {
-        yield return new WaitForSeconds(5f);
-        PanzeriaMultiplayer.Instance.SpawnAbility(abilitiesList.abilities[0], new Vector3(Random.Range(minMapWidth, maxMapWidth), 0, Random.Range(minMapHeight, maxMapHeight)), Quaternion.identity);
+        yield return new WaitForSeconds(10f);
+        int abilityIndex = Random.Range(0, 2);
+        PanzeriaMultiplayer.Instance.SpawnAbility(abilitiesList.abilities[abilityIndex], new Vector3(Random.Range(minMapWidth, maxMapWidth), 0, Random.Range(minMapHeight, maxMapHeight)), Quaternion.identity);
         StartCoroutine(this.SpawnAbilityCoroutine());
     }
 }
