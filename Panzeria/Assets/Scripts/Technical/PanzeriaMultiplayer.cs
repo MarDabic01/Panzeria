@@ -6,12 +6,10 @@ public class PanzeriaMultiplayer : NetworkBehaviour
 {
     [SerializeField] private BulletsList BulletsList;
     [SerializeField] private AbilitiesList AbilitiesList;
-    [SerializeField] private List<BombListElement> BombsList;
     public static PanzeriaMultiplayer Instance { get; private set; }
 
     private void Awake()
     {
-        BombsList = new List<BombListElement>();
         Instance = this;
     }
 
@@ -29,35 +27,15 @@ public class PanzeriaMultiplayer : NetworkBehaviour
         spawnedBulletNetwork.Spawn(true);
     }
 
-    public void SpawnBomb(GameObject bullet, Vector3 position, Quaternion rotation, ulong networkObjectId)
+    public void BombExplode()
     {
-        SpawnBombServerRpc(GetBulletIndex(bullet), position, rotation, networkObjectId);
+        BombExplodeServerRpc();
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void SpawnBombServerRpc(int bulletIndex, Vector3 position, Quaternion rotation, ulong networkObjectId)
-    {
-        GameObject spawnedBomb = Instantiate(GetBulletFromIndex(bulletIndex), position, rotation);
-        BombsList.Add(new BombListElement {
-            Bomb = spawnedBomb,
-            NetworkObjectId = networkObjectId
-        });
-        NetworkObject spawnedBulletNetwork = spawnedBomb.GetComponent<NetworkObject>();
-        spawnedBulletNetwork.Spawn(true);
-    }
-
-    public void DespawnBomb(ulong networkObjectId)
-    {
-        DespawnBombServerRpc(networkObjectId);
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void DespawnBombServerRpc(ulong networkObjectId)
+    public void BombExplodeServerRpc()
     {
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animation>().Play();
-        NetworkObject spawnedBulletNetwork = BombsList.Find(elem => elem.NetworkObjectId == networkObjectId).Bomb.GetComponent<NetworkObject>();
-        spawnedBulletNetwork.Despawn(true);
-        BombsList.RemoveAll(elem => elem.NetworkObjectId == networkObjectId);
     }
 
     public void SpawnAbility(GameObject ability, Vector3 position, Quaternion rotation)
@@ -74,23 +52,8 @@ public class PanzeriaMultiplayer : NetworkBehaviour
         spawnedAbilityNetwork.Spawn(true);
     }
 
-    private int GetBulletIndex(GameObject bullet)
-    {
-        return BulletsList.bullets.IndexOf(bullet);
-    }
-
-    private GameObject GetBulletFromIndex(int bulletIndex)
-    {
-        return BulletsList.bullets[bulletIndex]; ;
-    }
-
-    private int GetAbilityIndex(GameObject ability)
-    {
-        return AbilitiesList.abilities.IndexOf(ability);
-    }
-
-    private GameObject GetAbilityFromIndex(int abilityIndex)
-    {
-        return AbilitiesList.abilities[abilityIndex]; ;
-    }
+    private int GetBulletIndex(GameObject bullet) => BulletsList.bullets.IndexOf(bullet);
+    private GameObject GetBulletFromIndex(int bulletIndex) => BulletsList.bullets[bulletIndex];
+    private int GetAbilityIndex(GameObject ability) => AbilitiesList.abilities.IndexOf(ability);
+    private GameObject GetAbilityFromIndex(int abilityIndex) => AbilitiesList.abilities[abilityIndex]; 
 }

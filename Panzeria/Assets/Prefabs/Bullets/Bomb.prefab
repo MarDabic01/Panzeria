@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 1801215218248397772}
   - component: {fileID: 7902979353673810850}
   - component: {fileID: 5007793153522474164}
-  - component: {fileID: 8013937400007176680}
   - component: {fileID: 5408171345228108619}
+  - component: {fileID: 9088014563460337892}
+  - component: {fileID: 3757963119646313077}
   m_Layer: 3
   m_Name: Bomb
   m_TagString: Bullet
@@ -130,20 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8013937400007176680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5367790557683094682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7e61221a8d7ca408f0e470e74bb521, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 270
-  bulletLifetime: 8
 --- !u!114 &5408171345228108619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +143,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3240abe362ecb341b96726aed9c1b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9088014563460337892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367790557683094682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072fda6beb62d744cb8d022f8d5d58ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 270
+  bulletLifetime: 8
+  numberOfFragments: 7
+  bulletsList: {fileID: 11400000, guid: 2757822e03ce7624a905889f58290cbc, type: 2}
+--- !u!111 &3757963119646313077
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367790557683094682}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e55bb11467aaace4c99f4cba66977260, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: e55bb11467aaace4c99f4cba66977260, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &8887646870213613833
 GameObject:
   m_ObjectHideFlags: 0

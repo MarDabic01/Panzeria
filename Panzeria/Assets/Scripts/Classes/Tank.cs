@@ -26,7 +26,7 @@ public sealed class Tank : NetworkBehaviour
 
     void Start()
     {
-        playerFireAbility = new PlayerFireAbility(bulletsList, new PlayerFire());
+        playerFireAbility = new PlayerFireAbility(bulletsList);
         rigidbody = GetComponent<Rigidbody>();
     }
 
