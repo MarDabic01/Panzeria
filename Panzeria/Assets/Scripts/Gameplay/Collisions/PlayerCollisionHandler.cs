@@ -1,15 +1,26 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
-    [SerializeField] Rigidbody rb;
+    [SerializeField] private BulletsList bulletsList;
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "CubeTEST")
+        switch (collision.gameObject.tag)
         {
-            Debug.Log("Collision ended");
-            rb.velocity = Vector3.zero;
+            case "BombAbility": gameObject.GetComponent<Tank>().ability = bulletsList.GetBulletByName(BulletsEnum.BOMB); break;
+            case "MachineGunAbility": {
+                    gameObject.GetComponent<Tank>().ability = bulletsList.GetBulletByName(BulletsEnum.MACHINEGUNBULLET);
+                    StartCoroutine(ResetMachineGun());
+            } break;
+            case "MineAbility": gameObject.GetComponent<Tank>().ability = bulletsList.GetBulletByName(BulletsEnum.MINE); break;
         }
+    }
+
+    private IEnumerator ResetMachineGun()
+    {
+        yield return new WaitForSeconds(8f);
+        gameObject.GetComponent<Tank>().ability = null;
     }
 }
