@@ -135,9 +135,9 @@ GameObject:
   - component: {fileID: 39661174}
   - component: {fileID: 39661173}
   - component: {fileID: 39661172}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BorderWall4
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -232,9 +232,9 @@ GameObject:
   - component: {fileID: 114238433}
   - component: {fileID: 114238432}
   - component: {fileID: 114238431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BorderWall2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 136268933}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -614,9 +614,9 @@ GameObject:
   - component: {fileID: 236625925}
   - component: {fileID: 236625924}
   - component: {fileID: 236625923}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -711,9 +711,9 @@ GameObject:
   - component: {fileID: 304337771}
   - component: {fileID: 304337770}
   - component: {fileID: 304337769}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -943,9 +943,9 @@ GameObject:
   - component: {fileID: 588385881}
   - component: {fileID: 588385880}
   - component: {fileID: 588385879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (8)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1178,7 +1178,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &681250707
 GameObject:
@@ -1380,7 +1380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -1474,7 +1474,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &714650017
 GameObject:
@@ -1488,9 +1488,9 @@ GameObject:
   - component: {fileID: 714650021}
   - component: {fileID: 714650020}
   - component: {fileID: 714650019}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BorderWall1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1774,7 +1774,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1176212738
 GameObject:
@@ -1788,9 +1788,9 @@ GameObject:
   - component: {fileID: 1176212742}
   - component: {fileID: 1176212741}
   - component: {fileID: 1176212740}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1968,7 +1968,7 @@ RectTransform:
   m_Children:
   - {fileID: 653796301}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2084,9 +2084,9 @@ GameObject:
   - component: {fileID: 1613481805}
   - component: {fileID: 1613481804}
   - component: {fileID: 1613481803}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2303,9 +2303,9 @@ GameObject:
   - component: {fileID: 1812887519}
   - component: {fileID: 1812887518}
   - component: {fileID: 1812887517}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (9)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2400,9 +2400,9 @@ GameObject:
   - component: {fileID: 1844222056}
   - component: {fileID: 1844222055}
   - component: {fileID: 1844222054}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2497,9 +2497,9 @@ GameObject:
   - component: {fileID: 1862316102}
   - component: {fileID: 1862316101}
   - component: {fileID: 1862316100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2582,6 +2582,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862316098}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1867793750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2929787623277315327, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_Name
+      value: LaserAbility
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060729848624079670, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1609649432
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.0984
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2457476
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7792866728831193544, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67cf94f33a59aa642992ec5b7f412c68, type: 3}
 --- !u!1 &1882174166
 GameObject:
   m_ObjectHideFlags: 0
@@ -2594,9 +2655,9 @@ GameObject:
   - component: {fileID: 1882174170}
   - component: {fileID: 1882174169}
   - component: {fileID: 1882174168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2690,7 +2751,7 @@ GameObject:
   - component: {fileID: 1895698660}
   m_Layer: 0
   m_Name: BorderWalls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2746,7 +2807,7 @@ Transform:
   - {fileID: 1895698660}
   - {fileID: 136268933}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2016731269
 GameObject:
@@ -2760,9 +2821,9 @@ GameObject:
   - component: {fileID: 2016731273}
   - component: {fileID: 2016731272}
   - component: {fileID: 2016731271}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2857,9 +2918,9 @@ GameObject:
   - component: {fileID: 2106321114}
   - component: {fileID: 2106321113}
   - component: {fileID: 2106321112}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BorderWall3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -2959,7 +3020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1205626923630857293, guid: 143974d54517a2b48996edff6bec97f5, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1205626923630857293, guid: 143974d54517a2b48996edff6bec97f5, type: 3}
       propertyPath: m_LocalPosition.x

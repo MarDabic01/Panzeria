@@ -54,6 +54,7 @@ public class TankService : NetworkBehaviour, ITank
                 case BulletsEnum.BOMB: playerFireAbility.UseBombAbility(player, bulletsList.GetBulletByName(BulletsEnum.BOMB), spawnPoint); break;
                 case BulletsEnum.MACHINEGUNBULLET: playerFireAbility.UseMachineGunAbility(bulletsList.GetBulletByName(BulletsEnum.MACHINEGUNBULLET), spawnPoint); break;
                 case BulletsEnum.MINE: playerFireAbility.UseMineAbility(player, bulletsList.GetBulletByName(BulletsEnum.MINE), mineSpawnPoint); break;
+                case BulletsEnum.LASER: playerFireAbility.UseLaserAbility(player, bulletsList.GetBulletByName(BulletsEnum.LASER), spawnPoint); break;
             }
         }
     }

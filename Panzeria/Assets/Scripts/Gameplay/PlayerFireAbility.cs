@@ -33,5 +33,13 @@ public class PlayerFireAbility : NetworkBehaviour
         ResetAbility(player);
     }
 
+    public void UseLaserAbility(GameObject player, GameObject ability, Transform spawnPoint)
+    {
+        PanzeriaMultiplayer.Instance.SpawnBullet(ability, spawnPoint.position, spawnPoint.rotation);
+        player.GetComponentInChildren<LineRenderer>().enabled = false;
+        player.GetComponentInChildren<Laser>().enabled = false;
+        ResetAbility(player);
+    }
+
     private void ResetAbility(GameObject player) => player.GetComponent<Tank>().ability = null;
 }

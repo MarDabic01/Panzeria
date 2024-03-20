@@ -6,4 +6,5 @@ public static class BulletsEnum
     public const string BOMBFRAGMENT = "BombFragment";
     public const string MACHINEGUNBULLET = "MachineGunBullet";
     public const string MINE = "Mine";
+    public const string LASER = "Laser";
 }

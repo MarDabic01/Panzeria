@@ -4,7 +4,8 @@ using UnityEngine;
 public class PlayerCollisionHandler : MonoBehaviour
 {
     [SerializeField] private BulletsList bulletsList;
-
+    [SerializeField] private GameObject laserSpawnPoint;
+    
     private void OnCollisionEnter(Collision collision)
     {
         switch (collision.gameObject.tag)
@@ -15,6 +16,13 @@ public class PlayerCollisionHandler : MonoBehaviour
                     StartCoroutine(ResetMachineGun());
             } break;
             case "MineAbility": gameObject.GetComponent<Tank>().ability = bulletsList.GetBulletByName(BulletsEnum.MINE); break;
+            case "LaserAbility":
+                {
+                    laserSpawnPoint.GetComponent<LineRenderer>().enabled = true;
+                    laserSpawnPoint.GetComponent<Laser>().enabled = true;
+                    gameObject.GetComponent<Tank>().ability = bulletsList.GetBulletByName(BulletsEnum.LASER);
+                }
+                break;
         }
     }
 
