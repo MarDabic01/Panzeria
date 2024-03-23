@@ -156,6 +156,11 @@ public class PanzeriaGameMultiplayer : NetworkBehaviour
         return -1;
     }
 
+    public PlayerData GetPlayerData()
+    {
+        return GetPlayerDataFromClientId(NetworkManager.Singleton.LocalClientId);
+    }
+
     public string GetPlayerName()
     {
         return playerName;
@@ -182,6 +187,25 @@ public class PanzeriaGameMultiplayer : NetworkBehaviour
     public Material GetPlayerColor(int colorId)
     {
         return playerColorList[colorId];
+    }
+
+    public void ChangePlayerColor(int colorId)
+    {
+        ChangePlayerColorServerRpc(colorId);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ChangePlayerColorServerRpc(int colorId, ServerRpcParams serverRpcParams = default)
+    {
+        if (IsColorAvailable(colorId))
+        {
+            int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
+
+            PlayerData playerData = playerDataNetworkList[playerDataIndex];
+
+            playerData.colorId = colorId;
+            playerDataNetworkList[playerDataIndex] = playerData;
+        }
     }
 
     private int GetFirstUnusedColorId()
@@ -212,6 +236,19 @@ public class PanzeriaGameMultiplayer : NetworkBehaviour
     public bool IsPlayerIndexConnected(int playerIndex)
     {
         return playerIndex < playerDataNetworkList.Count;
+    }
+
+    public PlayerData GetPlayerDataFromClientId(ulong clientId)
+    {
+        foreach (PlayerData playerData in playerDataNetworkList)
+        {
+            if (playerData.clientId == clientId)
+            {
+                return playerData;
+            }
+        }
+
+        return default;
     }
 
     public PlayerData GetPlayerDataFromPlayerIndex(int playerIndex)

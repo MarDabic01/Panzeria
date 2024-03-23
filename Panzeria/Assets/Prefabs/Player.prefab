@@ -752,6 +752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankTower: {fileID: 3767749653063970487}
   tankBody: {fileID: 8302558053908284516}
+  tankCannon: {fileID: 1103622052200878251}
 --- !u!1 &8778469574139315780
 GameObject:
   m_ObjectHideFlags: 0
