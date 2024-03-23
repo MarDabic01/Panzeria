@@ -660,6 +660,7 @@ GameObject:
   - component: {fileID: 5961826216213472296}
   - component: {fileID: 1311712764585644842}
   - component: {fileID: 8302558053908284516}
+  - component: {fileID: 2211300230954486349}
   m_Layer: 0
   m_Name: TankFree_Blue
   m_TagString: Untagged
@@ -737,6 +738,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2211300230954486349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766444964251662730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3955cf8a0111a61478def1cc9c3732a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankTower: {fileID: 3767749653063970487}
+  tankBody: {fileID: 8302558053908284516}
 --- !u!1 &8778469574139315780
 GameObject:
   m_ObjectHideFlags: 0

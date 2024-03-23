@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PanzeriaGameMultiplayer : NetworkBehaviour
 {
-    public const int MAX_PLAYER_AMOUNT = 4;
+    public const int MAX_PLAYER_AMOUNT = 5;
     private const string PLAYER_PREFS_PLAYER_NAME_MULTIPLAYER = "PlayerNameMultiplayer";
 
     public static PanzeriaGameMultiplayer Instance { get; private set; }
@@ -20,7 +20,7 @@ public class PanzeriaGameMultiplayer : NetworkBehaviour
     public event EventHandler OnPlayerDataNetworkListChanged;
 
     //[SerializeField] private KitchenObjectListSO kitchenObjectListSO;
-    [SerializeField] private List<Color> playerColorList;
+    [SerializeField] private List<Material> playerColorList;
 
     private NetworkList<PlayerData> playerDataNetworkList;
     private string playerName;
@@ -179,6 +179,11 @@ public class PanzeriaGameMultiplayer : NetworkBehaviour
         OnPlayerDataNetworkListChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    public Material GetPlayerColor(int colorId)
+    {
+        return playerColorList[colorId];
+    }
+
     private int GetFirstUnusedColorId()
     {
         for (int i = 0; i < playerColorList.Count; i++)
@@ -202,5 +207,15 @@ public class PanzeriaGameMultiplayer : NetworkBehaviour
             }
         }
         return true;
+    }
+
+    public bool IsPlayerIndexConnected(int playerIndex)
+    {
+        return playerIndex < playerDataNetworkList.Count;
+    }
+
+    public PlayerData GetPlayerDataFromPlayerIndex(int playerIndex)
+    {
+        return playerDataNetworkList[playerIndex];
     }
 }

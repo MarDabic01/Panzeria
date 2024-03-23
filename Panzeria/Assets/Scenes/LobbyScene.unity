@@ -1327,7 +1327,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f7d052d3eb025418910610b201f99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerColorList: []
+  playerColorList:
+  - {fileID: 2100000, guid: 4cc919680d651984ba3021ec283fd441, type: 2}
+  - {fileID: 2100000, guid: 4577ee2046668dc4faae41439ead563c, type: 2}
+  - {fileID: 2100000, guid: 36797ffef13d2934b9df4b1eee1d60ad, type: 2}
+  - {fileID: 2100000, guid: b5284c67bfab9e349bdacb5305c330eb, type: 2}
+  - {fileID: 2100000, guid: ff5cf354928b12944b19c1b1bd4e5b43, type: 2}
+  - {fileID: 2100000, guid: f2aef1080b02ef44ca81eb9ddb2dde32, type: 2}
+  - {fileID: 2100000, guid: 4bd122cb58a5d8645afd8bf406f31e3f, type: 2}
+  - {fileID: 2100000, guid: 546738ce5c5f3484bb590ed3d3f696ee, type: 2}
+  - {fileID: 2100000, guid: c5261fce4d218ef4c96f1cf66124e2c5, type: 2}
 --- !u!1 &1632245479
 GameObject:
   m_ObjectHideFlags: 0
