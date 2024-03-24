@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.SceneManagement;
 
 public sealed class Tank : NetworkBehaviour
 {
@@ -11,6 +12,7 @@ public sealed class Tank : NetworkBehaviour
     [SerializeField] private GameObject[] leftWheels;
     [SerializeField] private GameObject[] rightWheels;
     [SerializeField] private float wheelRotationSpeed;
+    [SerializeField] private PlayerVisual playerVisual;
 
     //Fire variables
     [SerializeField] public BulletsList bulletsList;
@@ -29,6 +31,12 @@ public sealed class Tank : NetworkBehaviour
     {
         playerFireAbility = new PlayerFireAbility(bulletsList);
         rigidbody = GetComponent<Rigidbody>();
+
+        if (SceneManager.GetActiveScene().name != Loader.Scene.CharacterSelectScene.ToString())
+        {
+            PlayerData playerData = PanzeriaGameMultiplayer.Instance.GetPlayerDataFromClientId(OwnerClientId);
+            playerVisual.SetPlayerColor(PanzeriaGameMultiplayer.Instance.GetPlayerColor(playerData.colorId));
+        }
     }
 
     void Update()
