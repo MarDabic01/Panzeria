@@ -352,8 +352,9 @@ MonoBehaviour:
   - {fileID: 2156459554238512154}
   - {fileID: 8778469574139315780}
   wheelRotationSpeed: 350
+  playerVisual: {fileID: 2211300230954486349}
   bulletsList: {fileID: 11400000, guid: 2757822e03ce7624a905889f58290cbc, type: 2}
-  ability: {fileID: 0}
+  ability: {fileID: 7766444964251662730}
   spawnPoint: {fileID: 2471893509085377378}
   mineSpawnPoint: {fileID: 3433777733920477614}
 --- !u!114 &5572378123740685132
