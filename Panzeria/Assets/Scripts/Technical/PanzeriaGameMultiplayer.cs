@@ -146,7 +146,6 @@ public class PanzeriaGameMultiplayer : NetworkBehaviour
 
     public void KickPlayer(ulong clientId)
     {
-        Debug.Log("Kicked");
         NetworkManager.Singleton.DisconnectClient(clientId);
         NetworkManager_Server_OnClientDisconnectCallback(clientId);
     }
