@@ -144,6 +144,13 @@ public class PanzeriaGameMultiplayer : NetworkBehaviour
         playerDataNetworkList[playerDataIndex] = playerData;
     }
 
+    public void KickPlayer(ulong clientId)
+    {
+        Debug.Log("Kicked");
+        NetworkManager.Singleton.DisconnectClient(clientId);
+        NetworkManager_Server_OnClientDisconnectCallback(clientId);
+    }
+
     public int GetPlayerDataIndexFromClientId(ulong clientId)
     {
         for (int i = 0; i < playerDataNetworkList.Count; i++)

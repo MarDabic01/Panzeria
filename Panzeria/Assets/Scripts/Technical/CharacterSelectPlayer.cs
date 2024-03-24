@@ -1,16 +1,29 @@
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterSelectPlayer : MonoBehaviour
 {
     [SerializeField] private int playerIndex;
     [SerializeField] private GameObject readyGameObject;
     [SerializeField] private PlayerVisual playerVisual;
+    [SerializeField] private Button kickButton;
+
+    private void Awake()
+    {
+        kickButton.onClick.AddListener(() =>
+        {
+            PlayerData playerData = PanzeriaGameMultiplayer.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
+            PanzeriaGameMultiplayer.Instance.KickPlayer(playerData.clientId);
+        });
+    }
 
     private void Start()
     {
         PanzeriaGameMultiplayer.Instance.OnPlayerDataNetworkListChanged += PanzeriaGameMultiplayer_OnPlayerDataNetworkListChanged;
         CharacterSelectReady.Instance.OnReadyChanged += CharacterSelectReady_OnReadyChanged;
 
+        kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
         UpdatePlayer();
     }
 
