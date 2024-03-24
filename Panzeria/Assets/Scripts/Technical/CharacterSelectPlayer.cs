@@ -60,4 +60,9 @@ public class CharacterSelectPlayer : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        PanzeriaGameMultiplayer.Instance.OnPlayerDataNetworkListChanged -= PanzeriaGameMultiplayer_OnPlayerDataNetworkListChanged;
+    }
 }

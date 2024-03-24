@@ -34,4 +34,9 @@ public class CharacterColorSelectSingleUI : MonoBehaviour
             selectedGameObject.SetActive(false);
         }
     }
+
+    private void OnDestroy()
+    {
+        PanzeriaGameMultiplayer.Instance.OnPlayerDataNetworkListChanged -= PanzeriaGameMultiplayer_OnPlayerDataNetworkListChanged;
+    }
 }
