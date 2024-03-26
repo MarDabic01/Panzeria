@@ -15,9 +15,9 @@ public class CleanUpManager : MonoBehaviour
             Destroy(PanzeriaGameMultiplayer.Instance.gameObject);
         }
 
-        //if (PanzeriaGameLobby.Instance != null)
-        //{
-        //    Destroy(PanzeriaGameLobby.Instance.gameObject);
-        //}
+        if (PanzeriaGameLobby.Instance != null)
+        {
+            Destroy(PanzeriaGameLobby.Instance.gameObject);
+        }
     }
 }
