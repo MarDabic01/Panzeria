@@ -9,6 +9,7 @@ public class PanzeriaGameLobby : MonoBehaviour
     public static PanzeriaGameLobby Instance { get; private set; }
 
     private Lobby joinedLobby;
+    private float heartbeatTimer;
 
     private void Awake()
     {
@@ -16,6 +17,31 @@ public class PanzeriaGameLobby : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         InitializeUnityAuthentication();
+    }
+
+    private void Update()
+    {
+        HandleHeartbeat();
+    }
+
+    private void HandleHeartbeat()
+    {
+        if (IsLobbyHost())
+        {
+            heartbeatTimer -= Time.deltaTime;
+            if (heartbeatTimer <= 0)
+            {
+                //float heartbeatMax = 15f;
+                heartbeatTimer = 15f;
+
+                LobbyService.Instance.SendHeartbeatPingAsync(joinedLobby.Id);
+            }
+        }
+    }
+
+    private bool IsLobbyHost()
+    {
+        return joinedLobby != null && joinedLobby.HostId == AuthenticationService.Instance.PlayerId;
     }
 
     private async void InitializeUnityAuthentication()
