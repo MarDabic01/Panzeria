@@ -10,11 +10,13 @@ public class LobbyUI : MonoBehaviour
     [SerializeField] private Button joinByCodeButton;
     [SerializeField] private LobbyCreateUI lobbyCreateUI;
     [SerializeField] private TMP_InputField lobbyCodeInputField;
+    [SerializeField] private TMP_InputField playerNameInputField;
 
     private void Awake()
     {
         mainMenuButton.onClick.AddListener(() =>
         {
+            PanzeriaGameLobby.Instance.LeaveLobby();
             Loader.Load(Loader.Scene.MainMenuScene);
         });
 
@@ -31,6 +33,15 @@ public class LobbyUI : MonoBehaviour
         joinByCodeButton.onClick.AddListener(() =>
         {
             PanzeriaGameLobby.Instance.JoinByCode(lobbyCodeInputField.text);
+        });
+    }
+
+    private void Start()
+    {
+        playerNameInputField.text = PanzeriaGameMultiplayer.Instance.GetPlayerName();
+        playerNameInputField.onValueChanged.AddListener((string newPlayerName) =>
+        {
+            PanzeriaGameMultiplayer.Instance.SetPlayerName(newPlayerName);
         });
     }
 }

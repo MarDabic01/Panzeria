@@ -41,6 +41,7 @@ public class CharacterSelectReady : NetworkBehaviour
 
         if (allClientsReady)
         {
+            PanzeriaGameLobby.Instance.DeleteLobby();
             Loader.LoadNetwork(Loader.Scene.SampleScene);
         }
     }
