@@ -3,10 +3,17 @@ using UnityEngine;
 using Unity.Services.Authentication;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
+using System;
 
 public class PanzeriaGameLobby : MonoBehaviour
 {
     public static PanzeriaGameLobby Instance { get; private set; }
+
+    public event EventHandler OnCreateLobbyStarted;
+    public event EventHandler OnCreateLobbyFailed;
+    public event EventHandler OnJoinStarted;
+    public event EventHandler OnQuickJoinFailed;
+    public event EventHandler OnJoinByCodeFailed;
 
     private Lobby joinedLobby;
     private float heartbeatTimer;
@@ -49,7 +56,7 @@ public class PanzeriaGameLobby : MonoBehaviour
         if (UnityServices.State != ServicesInitializationState.Initialized)
         {
             InitializationOptions initializationOptions = new InitializationOptions();
-            initializationOptions.SetProfile(Random.Range(0,10000).ToString());
+            initializationOptions.SetProfile(UnityEngine.Random.Range(0,10000).ToString());
             await UnityServices.InitializeAsync(initializationOptions);
 
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
@@ -58,6 +65,7 @@ public class PanzeriaGameLobby : MonoBehaviour
 
     public async void CreateLobby(string lobbyName, bool isPrivate)
     {
+        OnCreateLobbyStarted?.Invoke(this, EventArgs.Empty);
         try
         {
             joinedLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, PanzeriaGameMultiplayer.MAX_PLAYER_AMOUNT, new CreateLobbyOptions
@@ -70,11 +78,13 @@ public class PanzeriaGameLobby : MonoBehaviour
         } catch (LobbyServiceException e)
         {
             Debug.Log(e);
+            OnCreateLobbyFailed?.Invoke(this, EventArgs.Empty);
         }
     }
 
     public async void QuickJoin()
     {
+        OnJoinStarted?.Invoke(this, EventArgs.Empty);
         try
         {
             joinedLobby = await LobbyService.Instance.QuickJoinLobbyAsync();
@@ -84,11 +94,13 @@ public class PanzeriaGameLobby : MonoBehaviour
         catch (LobbyServiceException e)
         {
             Debug.Log(e);
+            OnQuickJoinFailed?.Invoke(this, EventArgs.Empty);
         }
     }
 
     public async void JoinByCode(string code)
     {
+        OnJoinStarted?.Invoke(this, EventArgs.Empty);
         try
         {
             joinedLobby = await LobbyService.Instance.JoinLobbyByCodeAsync(code);
@@ -98,6 +110,7 @@ public class PanzeriaGameLobby : MonoBehaviour
         catch (LobbyServiceException e)
         {
             Debug.Log(e);
+            OnJoinByCodeFailed?.Invoke(this, EventArgs.Empty);
         }
     }
 
