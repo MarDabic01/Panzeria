@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using TMPro;
-using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,13 +6,10 @@ public class LobbyUI : MonoBehaviour
 {
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button createLobbyButton;
-    [SerializeField] private Button quickJoinButton;
-    [SerializeField] private Button joinByCodeButton;
+    [SerializeField] private Button joinLobbyButton;
     [SerializeField] private LobbyCreateUI lobbyCreateUI;
-    [SerializeField] private TMP_InputField lobbyCodeInputField;
+    [SerializeField] private LobbyJoinUI lobbyJoinUI;
     [SerializeField] private TMP_InputField playerNameInputField;
-    [SerializeField] private Transform lobbyContainer;
-    [SerializeField] private Transform lobbyTemplate;
 
     private void Awake()
     {
@@ -27,20 +21,15 @@ public class LobbyUI : MonoBehaviour
 
         createLobbyButton.onClick.AddListener(() =>
         {
+            Hide();
             lobbyCreateUI.Show();
         });
 
-        quickJoinButton.onClick.AddListener(() =>
+        joinLobbyButton.onClick.AddListener(() =>
         {
-            PanzeriaGameLobby.Instance.QuickJoin();
+            Hide();
+            lobbyJoinUI.Show();
         });
-
-        joinByCodeButton.onClick.AddListener(() =>
-        {
-            PanzeriaGameLobby.Instance.JoinByCode(lobbyCodeInputField.text);
-        });
-
-        lobbyTemplate.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -50,29 +39,15 @@ public class LobbyUI : MonoBehaviour
         {
             PanzeriaGameMultiplayer.Instance.SetPlayerName(newPlayerName);
         });
-
-        PanzeriaGameLobby.Instance.OnLobbyListChanged += PanzeriaGameLobby_OnLobbyListChanged;
-        UpdateLobbyList(new List<Lobby>());
     }
 
-    private void PanzeriaGameLobby_OnLobbyListChanged(object sender, PanzeriaGameLobby.OnLobbyListChangedEventArgs e)
+    public void Show()
     {
-        UpdateLobbyList(e.lobbyList);
+        gameObject.SetActive(true);
     }
 
-    private void UpdateLobbyList(List<Lobby> lobbyList)
+    public void Hide()
     {
-        foreach (Transform child in lobbyContainer)
-        {
-            if (child == lobbyTemplate) continue;
-            Destroy(child.gameObject);
-        }
-
-        foreach (Lobby lobby in lobbyList)
-        {
-            Transform lobbyTransform = Instantiate(lobbyTemplate, lobbyContainer);
-            lobbyTransform.gameObject.SetActive(true);
-            lobbyTransform.GetComponent<LobbyListSingleUI>().SetLobby(lobby);
-        }    
+        gameObject.SetActive(false);
     }
 }

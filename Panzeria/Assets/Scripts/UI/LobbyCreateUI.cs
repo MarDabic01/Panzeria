@@ -6,8 +6,9 @@ public class LobbyCreateUI : MonoBehaviour
 {
     [SerializeField] private Button createPublicButton;
     [SerializeField] private Button createPrivateButton;
-    [SerializeField] private Button closeButton;
+    [SerializeField] private Button backButton;
     [SerializeField] private TMP_InputField lobbyNameInputField;
+    [SerializeField] private LobbyUI lobbyUI;
 
     private void Awake()
     {
@@ -21,9 +22,10 @@ public class LobbyCreateUI : MonoBehaviour
             PanzeriaGameLobby.Instance.CreateLobby(lobbyNameInputField.text, true);
         });
 
-        closeButton.onClick.AddListener(() =>
+        backButton.onClick.AddListener(() =>
         {
             HIde();
+            lobbyUI.Show();
         });
     }
 
